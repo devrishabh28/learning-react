@@ -29,14 +29,14 @@ const games = [
 const GameList = () => {
     return (
         <section className='gamelist'>
-            {games.map((game) => <Game game={game} key={game.id} />)}
+            {games.map((game) => <Game {...game} key={game.id} />)}
         </section>
     );
 }
 
 // const Game = (props) => {
 //     console.log(props);
-//     const {creator, title, img} = props.game;
+//     const {creator, title, img} = props;
 //     return (
 //         <article className='game'>
 //             <img src={img} alt={title} />
@@ -46,7 +46,7 @@ const GameList = () => {
 //     );
 // }
 
-const Game = ({game: {creator, title, img, children}}) => {
+const Game = ({creator, title, img, children}) => {
     return (
         <article className='game'>
             <img src={img} alt={title} />
