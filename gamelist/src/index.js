@@ -1,34 +1,51 @@
 // import React from 'react';
 import ReactDOM from "react-dom/client"
 
-import './css/index.css';
+import './/css/index.css';
+
 
 const GameList = () => {
+    
+    const firstGame = {
+        creator:'FromSoftware',
+        title:'Elden Ring',
+        img:'https://image.api.playstation.com/vulcan/ap/rnd/202108/0410/2odx6gpsgR6qQ16YZ7YkEt2B.png'
+    }
+
+    const secondGame = {
+        creator:'FromSoftware',
+        title:'Dark Souls III',
+        img:'https://image.api.playstation.com/cdn/EP0700/CUSA03365_00/OFMeAw2KhrdaEZAjW1f3tCIXbogkLpTC.png'
+    }
+
     return (
         <section className='gamelist'>
-            <Game />
-            <Game />
-            <Game />
-            <Game />
+            <Game creator={firstGame.creator} title={firstGame.title} img={firstGame.img} />
+            <Game creator={secondGame.creator} title={secondGame.title} img={secondGame.img} />
         </section>
     );
 }
 
-const Game = () => {
+// const Game = (props) => {
+//     console.log(props);
+//     const {creator, title, img} = props;
+//     return (
+//         <article className='game'>
+//             <img src={img} alt={title} />
+//             <h2>{title}</h2>
+//             <h4>{creator.toUpperCase()}</h4>
+//         </article>
+//     );
+// }
+
+const Game = ({creator, title, img}) => {
     return (
         <article className='game'>
-            <Image />
-            <Title />
-            <Creator />
+            <img src={img} alt={title} />
+            <h2>{title}</h2>
+            <h4>{creator.toUpperCase()}</h4>
         </article>
     );
-}
-
-const Image = () => <img src='https://image.api.playstation.com/vulcan/ap/rnd/202108/0410/2odx6gpsgR6qQ16YZ7YkEt2B.png' alt='Elden Ring' />
-const Title = () => <h2>Elden Ring</h2>
-const Creator = () => {
-    const inlineHeadingStyles = {color:'#617d98', fontSize:'0.75rem', marginTop:'0.5rem'}
-    return <h4 style={inlineHeadingStyles}>FromSoftware</h4>
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
