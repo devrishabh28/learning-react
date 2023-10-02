@@ -26,9 +26,40 @@ const games = [
     );
 } */
 
+const EventExamples = () => {
+    const handleFormInput = (e) => {
+        console.log(e)
+        console.log(e.target.name)
+        console.log(e.target.value)
+        console.log('handle form input')
+    }
+    
+    const handleButtonClick = () => {
+        alert('handle button click')
+    }
+
+    const handleFormSubmission = (e) => {
+        e.preventDefault();
+        console.log('form submitted');
+    }
+
+    return (
+        <section>
+            <form onSubmit={handleFormSubmission}>
+                <h2>Typical Form</h2>
+                <input type="text" name="example1" onChange={handleFormInput} style={{margin: '1rem 0'}}/>
+                <input type="text" name="example2" onChange={(e) => console.log(e.target.value)} style={{margin: '1rem 0'}}/>
+            </form>
+            <button onClick={handleButtonClick}>Click Me</button>
+        </section>       
+    )
+}
+
+
 const GameList = () => {
     return (
         <section className='gamelist'>
+            <EventExamples />
             {games.map((game) => <Game {...game} key={game.id} />)}
         </section>
     );
