@@ -57,10 +57,18 @@ const EventExamples = () => {
 
 
 const GameList = () => {
+
+    const getGame = (id) => {
+        const game = games.find((game) => game.id === id)
+
+        if(game != null)
+            console.log(game.title)
+        
+    }
+
     return (
         <section className='gamelist'>
-            <EventExamples />
-            {games.map((game) => <Game {...game} key={game.id} />)}
+            {games.map((game) => <Game {...game} key={game.id} getGame={getGame} />)}
         </section>
     );
 }
@@ -77,13 +85,18 @@ const GameList = () => {
 //     );
 // }
 
-const Game = ({creator, title, img, children}) => {
+const Game = ({id, creator, title, img, getGame}) => {
+
+    const handleButtonClick = () => {
+        getGame(id)
+    }
+
     return (
         <article className='game'>
             <img src={img} alt={title} />
             <h2>{title}</h2>
+            <button onClick={handleButtonClick}>Click Me</button>
             <h4>{creator.toUpperCase()}</h4>
-            {children}
         </article>
     );
 }
