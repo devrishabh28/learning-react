@@ -10,19 +10,41 @@ body{
     color: #222;
 }
 
-.gamelist{
+.bestgames{
+    width: 90vw;
     width: 90vw;
     max-width: 1170px;
     margin: 5rem auto;
+}
+
+.bestgames h1{
+    margin: 2rem auto;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.gamelist{
     display: grid;
     gap: 2rem;
 }
 
 .game{
+    position: relative;
     background: #fff;
     border-radius: 1rem;
     padding: 2rem;
     text-align: center;
+}
+
+.number{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.75rem;
+    background: #c35600;
+    color: #fff;
+    font-weight: bold;
+    border-radius:1rem 0 1rem 0;
 }
 
 .game img{
@@ -44,5 +66,9 @@ body{
 @media screen and (min-width: 768px) {
     .gamelist{
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .bestgames h1{
+        text-align: left;
     }
 }
