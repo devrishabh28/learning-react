@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f1f5f8;
+    color: #222;
+}
+
+.gamelist{
+    width: 90vw;
+    max-width: 1170px;
+    margin: 5rem auto;
+    display: grid;
+    gap: 2rem;
+}
+
+.game{
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.game img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.game h2{
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .gamelist{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
