@@ -20,7 +20,10 @@ const GameList = () => {
 
     return (
         <section className='gamelist'>
-            <Game creator={firstGame.creator} title={firstGame.title} img={firstGame.img} />
+            <Game creator={firstGame.creator} title={firstGame.title} img={firstGame.img} >
+                <p>Elden Ring is a 2022 action role-playing game developed by FromSoftware. It was directed by Hidetaka Miyazaki with worldbuilding provided by fantasy writer George R. R. Martin.</p>
+                <button>Purchase</button>
+            </Game>
             <Game creator={secondGame.creator} title={secondGame.title} img={secondGame.img} />
         </section>
     );
@@ -38,12 +41,13 @@ const GameList = () => {
 //     );
 // }
 
-const Game = ({creator, title, img}) => {
+const Game = ({creator, title, img, children}) => {
     return (
         <article className='game'>
             <img src={img} alt={title} />
             <h2>{title}</h2>
             <h4>{creator.toUpperCase()}</h4>
+            {children}
         </article>
     );
 }
